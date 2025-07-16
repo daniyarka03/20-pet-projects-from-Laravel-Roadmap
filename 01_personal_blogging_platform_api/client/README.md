@@ -1,54 +1,130 @@
-# React + TypeScript + Vite
+# Personal Blog Platform - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web interface for a personal blogging platform built with React, TypeScript, TailwindCSS, and Shadcn UI.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Clean black and white design** - Minimalist and elegant interface
+- **Full CRUD management** - Create, read, update, and delete posts
+- **Responsive design** - Looks great on all devices
+- **Modern tech stack** - React 18 + TypeScript + Vite
+- **UI components** - Shadcn UI for consistent design
 
-## Expanding the ESLint configuration
+## 🛠 Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 18** - UI library
+- **TypeScript** - Typed JavaScript
+- **Vite** - Fast build tool
+- **TailwindCSS** - Utility-first CSS framework
+- **Shadcn UI** - Reusable components
+- **React Router** - Routing
+- **Axios** - HTTP client
+- **Lucide React** - Icons
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📱 Pages
+
+1. **Post List** (`/`) - Main page with all posts
+2. **Post View** (`/post/:id`) - Detailed view of a single post
+3. **Create Post** (`/create`) - Form for creating a new post
+4. **Edit Post** (`/edit/:id`) - Form for editing an existing post
+
+## 🔗 API Endpoints
+
+The application interacts with Laravel API:
+
+- `GET /api/posts/` - Get all posts
+- `GET /api/posts/:id` - Get a specific post
+- `POST /api/posts/` - Create a new post
+- `PUT /api/posts/:id` - Update a post
+- `DELETE /api/posts/:id` - Delete a post
+
+## 🚀 Installation and Setup
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Run the project in development mode:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser and navigate to:**
+   ```
+   http://localhost:5174
+   ```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/           # Base UI components (Shadcn)
+│   ├── PostList.tsx  # Post list
+│   ├── PostView.tsx  # Post view
+│   ├── CreatePost.tsx # Create post
+│   └── EditPost.tsx  # Edit post
+├── services/
+│   └── api.ts        # API service for posts
+├── types/
+│   └── post.ts       # TypeScript interfaces
+├── lib/
+│   └── utils.ts      # Utilities
+└── App.tsx           # Main component with routing
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎨 Design System
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The application uses a minimalist black and white color scheme:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Primary color:** Black (#000000)
+- **Background:** White (#FFFFFF)
+- **Text:** Shades of gray
+- **Accents:** Subtle gray borders
+
+## 🔧 Implementation Features
+
+- **TypeScript interfaces** for post data typing
+- **Error handling** for all API requests
+- **Form validation** with error display
+- **Loading states** for better UX
+- **Delete confirmation** to prevent accidental actions
+- **Responsive layout** for mobile devices
+
+## 📝 Usage
+
+### Creating a Post
+1. Click the "New Post" button on the main page
+2. Fill in the title, topic, and content
+3. Click "Publish"
+
+### Editing a Post
+1. Open a post or find it in the list
+2. Click the edit icon
+3. Make your changes
+4. Click "Save Changes"
+
+### Deleting a Post
+1. Find the post in the list or open it
+2. Click the delete icon
+3. Confirm the action
+
+## 🤝 API Requirements
+
+Make sure your Laravel API is running on `http://localhost:8000` and supports:
+
+- CORS for frontend domain
+- JSON responses
+- Proper HTTP status codes
+- Post data structure:
+  ```json
+  {
+    "id": 1,
+    "title": "Post Title",
+    "content": "Post Content",
+    "topic": "Post Topic",
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z"
+  }
+  ```
